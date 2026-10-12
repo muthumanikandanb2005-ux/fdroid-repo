@@ -1,0 +1,87 @@
+{
+  "repo": {
+    "timestamp": 1791773914899,
+    "version": 20000,
+    "name": "Pulse Music Repository",
+    "icon": "icon.png",
+    "address": "https://muthumanikandanb2005-ux.github.io/fdroid-repo/repo",
+    "description": "Official F-Droid repository for Pulse Music - Modern music player with real-time lyrics & seamless playback."
+  },
+  "requests": {
+    "install": [],
+    "uninstall": []
+  },
+  "apps": [
+    {
+      "packageName": "com.pulse.music",
+      "name": "Pulse Music",
+      "summary": "Modern music player with real-time lyrics & seamless continuous playback",
+      "description": "Experience music like never before with Pulse Music.\n\nFeatures:\n* Ad-free streaming in background\n* Continuous playback engine with zero freezes and rapid skipping\n* Real-time synchronized lyrics (Musixmatch, LRCLIB, Spotify)\n* Seamless background Gemini AI translation\n* Offline caching and downloaded songs support\n* Equalizer, spatial audio, and sound enhancements\n* Home, Charts, Moods & Genres with high-speed browsing\n* SponsorBlock & Return YouTube Dislike integration\n* In-app OTA updates and trending music notifications\n* Sleep timer and Android Auto support",
+      "icon": "icon.png",
+      "authorName": "Manikandan",
+      "authorEmail": "muthumanikandanb2005@gmail.com",
+      "sourceCode": "https://github.com/muthumanikandanb2005-ux/PulseMusic",
+      "issueTracker": "https://github.com/muthumanikandanb2005-ux/PulseMusic/issues",
+      "license": "GPL-3.0-or-later",
+      "categories": [
+        "Multimedia"
+      ],
+      "suggestedVersionCode": 78,
+      "suggestedVersionName": "3.1.0",
+      "added": 1791773914899,
+      "lastUpdated": 1791773914899
+    }
+  ],
+  "packages": {
+    "com.pulse.music": [
+      {
+        "apkName": "PulseMusic-v3.1.0-Universal.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 78,
+        "versionName": "3.1.0",
+        "hash": "74ba8094923b9110060c37169811b70e56bed2ece0db7c70ba8f9745dfce980c",
+        "hashType": "sha256",
+        "size": 61053995,
+        "minSdkVersion": 26,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "added": 1791773914770
+      },
+      {
+        "apkName": "PulseMusic-v3.1.0-arm64-v8a.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 78,
+        "versionName": "3.1.0",
+        "hash": "22a08fc6ff103f020efe37f7f3b7cbb9145796f3adbda9d242b59937543a6a25",
+        "hashType": "sha256",
+        "size": 33184966,
+        "minSdkVersion": 26,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "arm64-v8a"
+        ],
+        "added": 1791773914839
+      },
+      {
+        "apkName": "PulseMusic-v3.1.0-armeabi-v7a.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 78,
+        "versionName": "3.1.0",
+        "hash": "b45bfb76ff1fbb867b5d25a479c9cd95e72cbcca96ae1682abd74977eb12bdb0",
+        "hashType": "sha256",
+        "size": 33149106,
+        "minSdkVersion": 26,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "armeabi-v7a"
+        ],
+        "added": 1791773914899
+      }
+    ]
+  }
+}
