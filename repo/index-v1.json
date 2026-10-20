@@ -1,6 +1,6 @@
 {
   "repo": {
-    "timestamp": 1791777324000,
+    "timestamp": 1792511364575,
     "version": 20000,
     "name": "Pulse Music Repository",
     "icon": "icon.png",
@@ -26,23 +26,23 @@
       "categories": [
         "Multimedia"
       ],
-      "suggestedVersionCode": 80,
-      "suggestedVersionName": "3.1.2",
+      "suggestedVersionCode": 86,
+      "suggestedVersionName": "3.1.8",
       "added": 1791773914899,
-      "lastUpdated": 1791777324000
+      "lastUpdated": 1792511364575
     }
   ],
   "packages": {
     "com.pulse.music": [
       {
-        "apkName": "PulseMusic-v3.1.2-Universal.apk",
+        "apkName": "PulseMusic-v3.1.8-Universal.apk",
         "packageName": "com.pulse.music",
-        "versionCode": 80,
-        "versionName": "3.1.2",
-        "hash": "6756586ddd295c071105bea00850c85b7bf7535b2c757e42382861a60c1ce5ab",
+        "versionCode": 86,
+        "versionName": "3.1.8",
+        "hash": "eb21259e33d5d5f512358ee9edd904c5f1f7d065a3dc2ce80237c0acc7371410",
         "hashType": "sha256",
-        "size": 61054325,
-        "minSdkVersion": 26,
+        "size": 61041707,
+        "minSdkVersion": 24,
         "targetSdkVersion": 35,
         "nativecode": [
           "arm64-v8a",
@@ -50,37 +50,52 @@
           "x86",
           "x86_64"
         ],
-        "added": 1791777324000
+        "added": 1792511364575
       },
       {
-        "apkName": "PulseMusic-v3.1.2-arm64-v8a.apk",
+        "apkName": "PulseMusic-v3.1.8-arm64-v8a.apk",
         "packageName": "com.pulse.music",
-        "versionCode": 80,
-        "versionName": "3.1.2",
-        "hash": "2a372a09e9e3b637a494c3814d5419b30401ba6e8e7db9821fab261f3f25676b",
+        "versionCode": 86,
+        "versionName": "3.1.8",
+        "hash": "6546789fee22ca19d26c0c2f6acf301e56bb0e98f519638f8a29a82665fc0d6d",
         "hashType": "sha256",
-        "size": 33185293,
-        "minSdkVersion": 26,
+        "size": 33172671,
+        "minSdkVersion": 24,
         "targetSdkVersion": 35,
         "nativecode": [
           "arm64-v8a"
         ],
-        "added": 1791777324000
+        "added": 1792511364575
       },
       {
-        "apkName": "PulseMusic-v3.1.2-armeabi-v7a.apk",
+        "apkName": "PulseMusic-v3.1.8-armeabi-v7a.apk",
         "packageName": "com.pulse.music",
-        "versionCode": 80,
-        "versionName": "3.1.2",
-        "hash": "87ae3f8e8af221cee55ea9ce4d104ea364aad40960c6ec60579e0e2a4ae94e0f",
+        "versionCode": 86,
+        "versionName": "3.1.8",
+        "hash": "e3906eb36010cc70a8aa1be10792392aa66c5e968941aaa9b0300436ed854737",
         "hashType": "sha256",
-        "size": 33149439,
-        "minSdkVersion": 26,
+        "size": 33136821,
+        "minSdkVersion": 24,
         "targetSdkVersion": 35,
         "nativecode": [
           "armeabi-v7a"
         ],
-        "added": 1791777324000
+        "added": 1792511364575
+      },
+      {
+        "apkName": "PulseMusic-v3.1.8-x86_64.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 86,
+        "versionName": "3.1.8",
+        "hash": "96281e8bd60d89d3b7147d13957d184b279ea777468d79d0efc25c2031afefe0",
+        "hashType": "sha256",
+        "size": 34638142,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "x86_64"
+        ],
+        "added": 1792511364575
       }
     ]
   }
