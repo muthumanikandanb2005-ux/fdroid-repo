@@ -1,28 +1,28 @@
 {
-  "tag_name": "v3.1.8",
-  "name": "Pulse Music v3.1.8",
-  "published_at": "2026-10-20T15:32:36Z",
-  "body": "Pulse Music v3.1.8: Rate limit CDN prioritization, lyrics accuracy & filter, listen together reconnect fixes.",
+  "tag_name": "v3.2.0",
+  "name": "Pulse Music v3.2.0",
+  "published_at": "2026-10-21T11:15:00Z",
+  "body": "Pulse Music v3.2.0: Removed Supabase auth & sync, single-tap search play, 2x faster update downloads with 256KB buffer, and 60fps hardware Canvas equalizer smoothness.",
   "assets": [
     {
-      "name": "PulseMusic-v3.1.8-Universal.apk",
-      "size": 61041707,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.1.8/PulseMusic-v3.1.8-Universal.apk"
+      "name": "PulseMusic-v3.2.0-Universal.apk",
+      "size": 61004062,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-Universal.apk"
     },
     {
-      "name": "PulseMusic-v3.1.8-arm64-v8a.apk",
-      "size": 33172671,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.1.8/PulseMusic-v3.1.8-arm64-v8a.apk"
+      "name": "PulseMusic-v3.2.0-arm64-v8a.apk",
+      "size": 33135020,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-arm64-v8a.apk"
     },
     {
-      "name": "PulseMusic-v3.1.8-armeabi-v7a.apk",
-      "size": 33136821,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.1.8/PulseMusic-v3.1.8-armeabi-v7a.apk"
+      "name": "PulseMusic-v3.2.0-armeabi-v7a.apk",
+      "size": 33099179,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-armeabi-v7a.apk"
     },
     {
-      "name": "PulseMusic-v3.1.8-x86_64.apk",
-      "size": 34638142,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.1.8/PulseMusic-v3.1.8-x86_64.apk"
+      "name": "PulseMusic-v3.2.0-x86_64.apk",
+      "size": 34600496,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-x86_64.apk"
     }
   ]
 }
