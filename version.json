@@ -1,28 +1,43 @@
 {
-  "tag_name": "v3.2.0",
-  "name": "Pulse Music v3.2.0",
-  "published_at": "2026-10-21T11:15:00Z",
-  "body": "Pulse Music v3.2.0: Removed Supabase auth & sync, single-tap search play, 2x faster update downloads with 256KB buffer, and 60fps hardware Canvas equalizer smoothness.",
+  "tag_name": "v3.2.2",
+  "name": "Pulse Music v3.2.2",
+  "published_at": "2026-10-24T14:33:12Z",
+  "body": "Pulse Music v3.2.2: Dolby Atmos hardware-only verification, high-fidelity DSP overhaul with synchronous stereo processing and head-shadow binaural diffraction, soft pastel lavender switch aesthetics, and instant metadata sync.",
   "assets": [
     {
-      "name": "PulseMusic-v3.2.0-Universal.apk",
-      "size": 61004062,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-Universal.apk"
+      "name": "PulseMusic-arm64-v8a.apk",
+      "size": 33151742,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-arm64-v8a.apk"
     },
     {
-      "name": "PulseMusic-v3.2.0-arm64-v8a.apk",
-      "size": 33135020,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-arm64-v8a.apk"
+      "name": "PulseMusic-Universal.apk",
+      "size": 61020789,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-Universal.apk"
     },
     {
-      "name": "PulseMusic-v3.2.0-armeabi-v7a.apk",
-      "size": 33099179,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-armeabi-v7a.apk"
+      "name": "PulseMusic-v3.2.2-arm64-v8a.apk",
+      "size": 33151742,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-v3.2.2-arm64-v8a.apk"
     },
     {
-      "name": "PulseMusic-v3.2.0-x86_64.apk",
-      "size": 34600496,
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.0/PulseMusic-v3.2.0-x86_64.apk"
+      "name": "PulseMusic-v3.2.2-armeabi-v7a.apk",
+      "size": 33115894,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-v3.2.2-armeabi-v7a.apk"
+    },
+    {
+      "name": "PulseMusic-v3.2.2-Universal.apk",
+      "size": 61020789,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-v3.2.2-Universal.apk"
+    },
+    {
+      "name": "PulseMusic-v3.2.2-x86_64.apk",
+      "size": 34617225,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/PulseMusic-v3.2.2-x86_64.apk"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 395,
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v3.2.2/SHA256SUMS.txt"
     }
   ]
 }
