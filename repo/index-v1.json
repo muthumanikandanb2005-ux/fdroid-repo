@@ -1,6 +1,6 @@
 {
   "repo": {
-    "timestamp": 1793116019703,
+    "timestamp": 1793197998498,
     "version": 20000,
     "name": "Pulse Music Repository",
     "icon": "icon.png",
@@ -26,14 +26,77 @@
       "categories": [
         "Multimedia"
       ],
-      "suggestedVersionCode": 98,
-      "suggestedVersionName": "3.3.0",
+      "suggestedVersionCode": 99,
+      "suggestedVersionName": "3.3.1",
       "added": 1791773914899,
-      "lastUpdated": 1793116019703
+      "lastUpdated": 1793197998498
     }
   ],
   "packages": {
     "com.pulse.music": [
+      {
+        "apkName": "PulseMusic-v3.3.1-Universal.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 99,
+        "versionName": "3.3.1",
+        "hash": "8774dd689d142df9b7f10fc83bbc4e51a06a719b9713f3494643d79ef4f8d36a",
+        "hashType": "sha256",
+        "size": 61288681,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "added": 1793197998498
+      },
+      {
+        "apkName": "PulseMusic-v3.3.1-arm64-v8a.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 99,
+        "versionName": "3.3.1",
+        "hash": "098842aa82714c748f1967470c2d5bafb0cbaa8a88991af2ec65b7af2e3975bc",
+        "hashType": "sha256",
+        "size": 33419618,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "arm64-v8a"
+        ],
+        "added": 1793197998498
+      },
+      {
+        "apkName": "PulseMusic-v3.3.1-armeabi-v7a.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 99,
+        "versionName": "3.3.1",
+        "hash": "f5ff597dfcb9dee118c668661e701617c93f192b2b9314c96ad6fa4baee743f3",
+        "hashType": "sha256",
+        "size": 33383767,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "armeabi-v7a"
+        ],
+        "added": 1793197998498
+      },
+      {
+        "apkName": "PulseMusic-v3.3.1-x86_64.apk",
+        "packageName": "com.pulse.music",
+        "versionCode": 99,
+        "versionName": "3.3.1",
+        "hash": "49fec5ec32c97e9a9a8cea2a910b3cb86b179746cd81142d046e42a2c3130479",
+        "hashType": "sha256",
+        "size": 34885094,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 35,
+        "nativecode": [
+          "x86_64"
+        ],
+        "added": 1793197998498
+      },
       {
         "apkName": "PulseMusic-v3.3.0-Universal.apk",
         "packageName": "com.pulse.music",
