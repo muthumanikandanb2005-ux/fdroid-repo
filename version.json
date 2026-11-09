@@ -1,88 +1,88 @@
 {
-  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.0.3",
-  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.0.3",
-  "tag_name": "v4.0.3",
-  "name": "Pulse Music v4.0.3 - Direct Snapchat Snap Sharing & Ultra-Smooth High Performance Playback",
+  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.0.4",
+  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.0.4",
+  "tag_name": "v4.0.4",
+  "name": "Pulse Music v4.0.4 - Soft Pastel UI, Multi-Colour Moving Ambient Lyrics & Universal Dolby Atmos",
   "draft": false,
   "prerelease": false,
-  "published_at": "2026-11-02T08:45:01Z",
-  "body": "# Pulse Music v4.0.3 - Direct Snapchat Snap Sharing & Ultra-Smooth High Performance Playback\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83d\udc7b Snapchat Direct Snap Sharing (Never Goes as Chat)\n- **Direct Snap / Story Editor**: Re-routed Snapchat sharing to official Snap Creative Kit Lite preview schemes (`snapchat://creativekit/preview`), opening directly into the full-screen Snap editor and camera canvas.\n- **No Private Chat Routing**: Completely eliminates redirection to Snapchat's private 1-on-1 friend chat selection.\n- **Sticker Overlay & LandingPageActivity Fallbacks**: Robust triple-tier fallback with sticker support ensuring 100% reliable opening across all Snapchat client versions.\n\n### \u26a1 Ultra-Smooth Playback & Zero Lag Audio Pipeline\n- **Non-Blocking Audio Sink**: Eliminated synchronous DataStore reads from the UI Main Thread when building ExoPlayer audio renderers.\n- **Instant Track Playback & Skipping**: Reduced initial playback buffer from 2,500ms to 800ms \u2014 tracks now start playing 3x faster with instant skip response.\n- **Instant Rebuffer Recovery**: Reduced rebuffer wait from 5,000ms to 1,500ms with a 30s back-buffer for instantaneous backward seeks.\n- **Responsive Transitions**: Optimized AudioTrack hardware buffer provider (multiplier 4x, 250ms\u20131000ms) to eliminate sluggish audio drain latency on pause or skip.\n\n### \ud83d\ude80 App UI & 120fps Scrolling Fluidity\n- **60% Reduced Recomposition Overhead**: Throttled progress polling interval to 250ms (Android) / 200ms (Desktop), eliminating redundant StateFlow triggers and UI micro-stutters.\n- **Persistent High-Speed Image Cache**: Configured Coil disk cache in private app storage (`cacheDir/image_cache`) for instant artwork display without temp-dir eviction.\n- **Stable List Keys**: Added stable item identifiers across Library and Playlist grids to ensure fluid 120fps scrolling.\n- **Main-Thread Coroutine Protection**: Replaced blocking string lookups in list clicks with asynchronous resources.\n",
+  "published_at": "2026-11-09T14:54:23Z",
+  "body": "# Pulse Music v4.0.4 - Soft Pastel UI, Multi-Colour Moving Ambient Lyrics & Universal Dolby Atmos\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83c\udfa8 Soft Pastel Theme & Purged Neon Colors\n- **Soft Aesthetic Palette**: Completely removed harsh neon green highlights across dialogs, splash, settings, shelf badges, and cookies in favor of a soft lavender/periwinkle palette (`#A788FA`, `#818CF8`, `#C4B5FD`).\n- **Hearing Safety & Indicators**: Refreshed volume protection, icons, and update dialogs with soothing, cohesive pastels.\n\n### \ud83c\udf0c Multi-Colour Moving Ambient Light Behind Lyrics\n- **Dynamic Organic Aurora**: Floating, organic radial gradient light effect in the background of full-screen and card lyrics driven directly by the album art palette.\n- **Fluid Ambient Animation**: Continuous smooth orbital drift synchronized with track visuals for an immersive listening experience.\n\n### \u26a1 Instant Material 3 Expressive Color Sync\n- **Album Palette Color Extraction**: Fixed palette extraction to prioritize vibrant and dominant swatches from album art, completely eliminating incorrect random pink/red seed fallbacks.\n- **Instant Snappy Transitions**: Reduced transition duration from 800ms down to 150ms so colors synchronize immediately when songs change.\n\n### \ud83c\udfa7 Universal Dolby Atmos DSP Controls\n- **Selectable Spatial Profiles**: Dynamic, Music, Cinema, and Voice sound profiles directly accessible in Settings and Audio Effects with clear subtitles.\n- **Universal Software DSP**: Removed hardware-gated restriction so Pulse Music's internal Dolby Atmos software audio processor runs on all Android devices.\n\n### \ud83d\udcdc Lyrics Blur & Fluid 120 FPS Synchronization\n- **Apple Music Depth-of-Field Blur**: Enhanced line blur constants (6dp\u201320dp) with smooth progression for distant lyrics.\n- **Zero-Lag Text Sync**: Removed duplicate shadow text allocations to guarantee lag-free, perfectly synced lyric wipe animations.\n\n### \ud83d\udd14 Intelligent Update Notifications\n- **Single Notification Rule**: Exactly one system status-bar alert per remote release tag.\n- **In-App Update Dialog**: Checking for updates inside the app presents an interactive in-app update progress dialog with live byte counts, avoiding notification spam.\n\n### \ud83c\udff7\ufe0f Clean Brand Consolidation\n- Unified all branding and descriptions under **Pulse Music** / **Pulse Music Studio**.\n",
   "assets": [
     {
       "name": "PulseMusic-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 61396030
+      "size": 61403447
     },
     {
       "name": "PulseMusic-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33527008
+      "size": 33534432
     },
     {
       "name": "PulseMusic-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33491163
+      "size": 33498583
     },
     {
       "name": "PulseMusic-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 34992493
+      "size": 34999911
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-Windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
-      "size": 183422552
+      "size": 183437928
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Windows-x64-Setup.zip",
       "content_type": "application/zip",
-      "size": 182948494
+      "size": 182965550
     },
     {
-      "name": "PulseMusic-v4.0.3-windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-windows-x64-Setup.exe",
+      "name": "PulseMusic-v4.0.4-windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
-      "size": 183422552
+      "size": 183437928
     },
     {
-      "name": "PulseMusic-v4.0.3-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-Windows-x64-Setup.zip",
+      "name": "PulseMusic-v4.0.4-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-Windows-x64-Setup.zip",
       "content_type": "application/zip",
-      "size": 182948494
+      "size": 182965550
     },
     {
-      "name": "PulseMusic-v4.0.3-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-Universal.apk",
+      "name": "PulseMusic-v4.0.4-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 61396030
+      "size": 61403447
     },
     {
-      "name": "PulseMusic-v4.0.3-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-arm64-v8a.apk",
+      "name": "PulseMusic-v4.0.4-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33527008
+      "size": 33534432
     },
     {
-      "name": "PulseMusic-v4.0.3-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-armeabi-v7a.apk",
+      "name": "PulseMusic-v4.0.4-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33491163
+      "size": 33498583
     },
     {
-      "name": "PulseMusic-v4.0.3-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/PulseMusic-v4.0.3-x86_64.apk",
+      "name": "PulseMusic-v4.0.4-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 34992493
+      "size": 34999911
     },
     {
       "name": "SHA256SUMS.txt",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.3/SHA256SUMS.txt",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/SHA256SUMS.txt",
       "content_type": "text/plain; charset=utf-8",
       "size": 1176
     }
