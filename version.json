@@ -1,88 +1,88 @@
 {
-  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.0.4",
-  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.0.4",
-  "tag_name": "v4.0.4",
-  "name": "Pulse Music v4.0.4 - Soft Pastel UI, Multi-Colour Moving Ambient Lyrics & Universal Dolby Atmos",
+  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.0.5",
+  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.0.5",
+  "tag_name": "v4.0.5",
+  "name": "Pulse Music v4.0.5 - 10 Mobile Widgets, Vibrant Expressive Player, Anti-Freeze Skipping & Regional Language Continuity",
   "draft": false,
   "prerelease": false,
-  "published_at": "2026-11-09T14:54:23Z",
-  "body": "# Pulse Music v4.0.4 - Soft Pastel UI, Multi-Colour Moving Ambient Lyrics & Universal Dolby Atmos\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83c\udfa8 Soft Pastel Theme & Purged Neon Colors\n- **Soft Aesthetic Palette**: Completely removed harsh neon green highlights across dialogs, splash, settings, shelf badges, and cookies in favor of a soft lavender/periwinkle palette (`#A788FA`, `#818CF8`, `#C4B5FD`).\n- **Hearing Safety & Indicators**: Refreshed volume protection, icons, and update dialogs with soothing, cohesive pastels.\n\n### \ud83c\udf0c Multi-Colour Moving Ambient Light Behind Lyrics\n- **Dynamic Organic Aurora**: Floating, organic radial gradient light effect in the background of full-screen and card lyrics driven directly by the album art palette.\n- **Fluid Ambient Animation**: Continuous smooth orbital drift synchronized with track visuals for an immersive listening experience.\n\n### \u26a1 Instant Material 3 Expressive Color Sync\n- **Album Palette Color Extraction**: Fixed palette extraction to prioritize vibrant and dominant swatches from album art, completely eliminating incorrect random pink/red seed fallbacks.\n- **Instant Snappy Transitions**: Reduced transition duration from 800ms down to 150ms so colors synchronize immediately when songs change.\n\n### \ud83c\udfa7 Universal Dolby Atmos DSP Controls\n- **Selectable Spatial Profiles**: Dynamic, Music, Cinema, and Voice sound profiles directly accessible in Settings and Audio Effects with clear subtitles.\n- **Universal Software DSP**: Removed hardware-gated restriction so Pulse Music's internal Dolby Atmos software audio processor runs on all Android devices.\n\n### \ud83d\udcdc Lyrics Blur & Fluid 120 FPS Synchronization\n- **Apple Music Depth-of-Field Blur**: Enhanced line blur constants (6dp\u201320dp) with smooth progression for distant lyrics.\n- **Zero-Lag Text Sync**: Removed duplicate shadow text allocations to guarantee lag-free, perfectly synced lyric wipe animations.\n\n### \ud83d\udd14 Intelligent Update Notifications\n- **Single Notification Rule**: Exactly one system status-bar alert per remote release tag.\n- **In-App Update Dialog**: Checking for updates inside the app presents an interactive in-app update progress dialog with live byte counts, avoiding notification spam.\n\n### \ud83c\udff7\ufe0f Clean Brand Consolidation\n- Unified all branding and descriptions under **Pulse Music** / **Pulse Music Studio**.\n",
+  "published_at": "2026-11-10T06:37:32Z",
+  "body": "# Pulse Music v4.0.5 - 10 Mobile Widgets, Vibrant Expressive Player, Anti-Freeze Skipping & Regional Language Continuity\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83d\udcf1 10 Android Home Screen Widgets (Glance + Material 3)\n- **Complete Suite**: Added 10 mobile widgets directly accessible from the Android home screen widget picker:\n  - **Capsule Controls**: Vertical 3-button launcher pill (Home, Next, Now Playing).\n  - **Media Bar Capsule**: Slim horizontal pill with complete playback controls.\n  - **Genre Quick Selector**: Instant 1-tap launcher for Pop, Rock [New], Electronic, and Jazz.\n  - **Volume & Track Orb**: Circular volume dial with multi-colour glowing spheres and active track card.\n  - **Preferences & Equalizer**: Weekly equalizer bar chart (S M T W T F S) with genre picker and search bar.\n  - **Social Listening Pill**: Friend profile avatars, real-time soundwave animation, and group listen button.\n  - **Waveform Player Pill**: Dynamic audio waveform mini player with track timer and play/pause controls.\n  - **Favorites & Trending Albums**: Multi-genre timeline chart with a trending albums feed.\n  - **Earbuds & Device Battery**: Connected wireless earbuds gauge with dual left/right battery percentage arcs.\n  - **Listening Statistics**: 12-hour peak listening trend curve and average listening time.\n\n### \ud83c\udfa8 \"Vibrant Expressive\" Player Screen (Behance-Inspired)\n- **Material 3 Expressive Design**: Full UI inspired by the Behance modern music player design with dynamic album color extraction (`PaletteStyle.Expressive`).\n- **Multi-Colour Moving Ambient Light**: Dual rotating light orbs driven by album cover art colors drifting smoothly behind the player and lyrics.\n- **Elevated Squircle Card**: Elevated album artwork container with rounded corners and a breathing glow backdrop.\n- **Expressive Transport & Wavy Seek Bar**: Elastic wavy progress bar with bounce physics and reactive playback controls.\n- **Universal Lyrics Depth Blur**: Inactive lyric lines are wrapped with soft depth-of-field focus blur.\n\n### \ud83c\udf10 Regional Language Skip Continuity\n- **Zero Language Drift**: Fixed song skipping when listening to Tamil, Telugu, Hindi, Malayalam, Kannada, or Punjabi music so playback strictly stays in the same regional language without drifting to English songs.\n- **Intelligent Script & Artist Detection**: Over 100 Western artists and comprehensive regional catalogs mapped into `TrackLanguageFilter`.\n\n### \ud83d\ude80 Rapid Skipping Anti-Freeze Engine (100+ Songs)\n- **10-Track Pre-Buffering**: Media handlers proactively buffer 10 tracks ahead so rapid skips never exhaust the playback queue.\n- **Zero Freeze Deadlock Watchdog**: Removed blocking sequential network calls during queue ingestion and added an automatic error advance watchdog, allowing users to rapidly skip 100+ songs smoothly.\n\n### \ud83d\udc7b Snapchat Direct Snap Sharing\n- **Direct Snap Creation**: Fixed Snapchat share intent to launch directly into Snapchat's Snap camera/editor (`LandingPageActivity`) as a native Snap with zero server errors.\n\n### \ud83d\udcbe Daily Song Analytics Storage Saver & History Cleanup\n- **On/Off Toggle in Settings**: Option to pause playback event tracking to conserve device storage, displaying an informative paused state in Analytics.\n- **Clear Playback History**: One-tap action to permanently clear stored playback analytics and free device memory.\n\n### \u26a1 Instant 120ms Album Color Sync\n- Color transitions synchronize with album art instantly upon song change without random fallback seeds.\n",
   "assets": [
     {
       "name": "PulseMusic-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 61403447
+      "size": 61449846
     },
     {
       "name": "PulseMusic-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33534432
+      "size": 33580831
     },
     {
       "name": "PulseMusic-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33498583
+      "size": 33544970
     },
     {
       "name": "PulseMusic-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 34999911
+      "size": 35046304
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-Windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
-      "size": 183437928
+      "size": 183496768
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-Windows-x64-Setup.zip",
       "content_type": "application/zip",
-      "size": 182965550
+      "size": 183025399
     },
     {
-      "name": "PulseMusic-v4.0.4-windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-windows-x64-Setup.exe",
+      "name": "PulseMusic-v4.0.5-windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
-      "size": 183437928
+      "size": 183496768
     },
     {
-      "name": "PulseMusic-v4.0.4-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-Windows-x64-Setup.zip",
+      "name": "PulseMusic-v4.0.5-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-Windows-x64-Setup.zip",
       "content_type": "application/zip",
-      "size": 182965550
+      "size": 183025399
     },
     {
-      "name": "PulseMusic-v4.0.4-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-Universal.apk",
+      "name": "PulseMusic-v4.0.5-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 61403447
+      "size": 61449846
     },
     {
-      "name": "PulseMusic-v4.0.4-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-arm64-v8a.apk",
+      "name": "PulseMusic-v4.0.5-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33534432
+      "size": 33580831
     },
     {
-      "name": "PulseMusic-v4.0.4-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-armeabi-v7a.apk",
+      "name": "PulseMusic-v4.0.5-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33498583
+      "size": 33544970
     },
     {
-      "name": "PulseMusic-v4.0.4-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/PulseMusic-v4.0.4-x86_64.apk",
+      "name": "PulseMusic-v4.0.5-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/PulseMusic-v4.0.5-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 34999911
+      "size": 35046304
     },
     {
       "name": "SHA256SUMS.txt",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.4/SHA256SUMS.txt",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.0.5/SHA256SUMS.txt",
       "content_type": "text/plain; charset=utf-8",
       "size": 1176
     }
