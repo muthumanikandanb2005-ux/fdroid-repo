@@ -1,88 +1,92 @@
 {
-  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.1.0",
-  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.1.0",
-  "tag_name": "v4.1.0",
-  "name": "Pulse Music v4.1.0 - Background Auto-Play Permanently Fixed & Butter-Smooth Playback OTA",
+  "version": "4.1.1",
+  "versionCode": 111,
+  "downloadUrl": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-arm64-v8a.apk",
+  "download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-arm64-v8a.apk",
+  "url": "https://api.github.com/repos/muthumanikandanb2005-ux/PulseMusic/releases/tags/v4.1.1",
+  "html_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/tag/v4.1.1",
+  "tag_name": "v4.1.1",
+  "name": "Pulse Music v4.1.1 - Official Hotfix & Seamless OTA Broadcast",
   "draft": false,
   "prerelease": false,
-  "published_at": "2026-11-11T07:17:10Z",
-  "body": "# Pulse Music v4.1.0 - Background Auto-Play Permanently Fixed & Butter-Smooth Playback OTA\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83d\uded1 Zero Unsolicited Background Audio Playback (Strict User-Tap Only)\n- **Eliminated Audio Focus Auto-Play Bug**: Corrected `CrossfadeExoPlayerAdapter.AUDIOFOCUS_LOSS_TRANSIENT`. Removed incorrect checks for `READY` and `PREPARING` states from `resumeOnFocusGain`. Transient system audio events (notification chimes, incoming call rings, SMS alerts, navigation prompts, camera clicks) will **never** trigger automatic audio playback while the app is paused, priming, or in the background.\n- **Guarded Bluetooth & Headset Media Buttons**: Overrode `SimpleMediaSessionCallback.onMediaButtonEvent` to intercept and safely consume external `ACTION_MEDIA_BUTTON` broadcasts. When headphones or Bluetooth connect/reconnect in the background, synthetic play commands will **never** auto-play songs unless the user explicitly intended playback.\n- **Synchronous Player Pause**: Calling `pause()` immediately stops audio output, clears `resumeOnFocusGain = false`, and terminates background position polling loops, eliminating latency and race conditions.\n- **Unconditional Clean Service Teardown**: Updated `SimpleMediaService.onDestroy()` to unconditionally release MediaSession and player adapters, guaranteeing zero zombie sessions or unsolicited audio restarts when the app is cleared from RAM or recents.\n\n### \u26a1 Butter-Smooth Fluid Play/Pause & Zero Stutter\n- **Optimistic Play/Pause Toggle**: `PlayerEvent.PlayPause` immediately updates the UI control state on tap without waiting for asynchronous player events, completely eliminating UI freeze, double-click stalls, and button lag.\n- **Idle CPU Optimization**: Background 50ms position updates now halt automatically while paused and only run during active playback (`shouldAutoPlay`).\n\n### \ud83c\udfa7 Audiophile FLAC & Lossless Audio Options\n- Dedicated high-bitrate options for `FLAC Lossless (Hi-Res Audio)` and `Lossless (High Bitrate Audio)` in Settings -> Audio Quality.\n- Full 32-bit float audio routing pipeline with real-time badges across MiniPlayer and Now Playing.\n",
+  "published_at": "2026-11-11T08:45:18Z",
+  "body": "# Pulse Music v4.1.1 - Official Hotfix & Seamless OTA Broadcast\n\nOfficial multi-platform release and global OTA update for **Android**, **Windows**, **Orion Store**, **F-Droid**, and **Obtainium**.\n\n---\n\n### \ud83d\ude80 Critical Hotfix: Accurate Release & OTA Asset Delivery\n- **Guaranteed v4.1.1 OTA Mapping**: Fixed release resolution channels across in-app updates, Orion Store, Obtainium, and F-Droid to ensure all platforms immediately receive and download genuine **v4.1.1** (Build **111**) binaries without falling back to historical legacy versions.\n- **Universal Asset Dual Naming**: All binaries are broadcast with both explicit version tags (`PulseMusic-v4.1.1-arm64-v8a.apk`, `PulseMusic-v4.1.1-Universal.apk`) and standard aliases (`PulseMusic-arm64-v8a.apk`, `PulseMusic-Universal.apk`) for 100% compatibility across all package managers.\n\n### \ud83d\uded1 Zero Unsolicited Background Audio Playback (Strict User-Tap Only)\n- **Eliminated Audio Focus Auto-Play Bug**: Corrected `CrossfadeExoPlayerAdapter.AUDIOFOCUS_LOSS_TRANSIENT`. Removed incorrect checks for `READY` and `PREPARING` states from `resumeOnFocusGain`. Transient system audio events (notification chimes, incoming call rings, SMS alerts, navigation prompts, camera clicks) will **never** trigger automatic audio playback while the app is paused, priming, or in the background.\n- **Guarded Bluetooth & Headset Media Buttons**: Overrode `SimpleMediaSessionCallback.onMediaButtonEvent` to intercept and safely consume external `ACTION_MEDIA_BUTTON` broadcasts. When headphones or Bluetooth connect/reconnect in the background, synthetic play commands will **never** auto-play songs unless the user explicitly intended playback.\n- **Synchronous Player Pause**: Calling `pause()` immediately stops audio output, clears `resumeOnFocusGain = false`, and terminates background position polling loops, eliminating latency and race conditions.\n- **Unconditional Clean Service Teardown**: Updated `SimpleMediaService.onDestroy()` to unconditionally release MediaSession and player adapters, guaranteeing zero zombie sessions or unsolicited audio restarts when the app is cleared from RAM or recents.\n\n### \u26a1 Butter-Smooth Fluid Play/Pause & Zero Stutter\n- **Optimistic Play/Pause Toggle**: `PlayerEvent.PlayPause` immediately updates the UI control state on tap without waiting for asynchronous player events, completely eliminating UI freeze, double-click stalls, and button lag.\n- **Idle CPU Optimization**: Background 50ms position updates halt automatically while paused and only run during active playback (`shouldAutoPlay`).\n\n### \ud83c\udfa7 Audiophile FLAC & Lossless Audio Options\n- Dedicated high-bitrate options for `FLAC Lossless (Hi-Res Audio)` and `Lossless (High Bitrate Audio)` in Settings -> Audio Quality.\n- Full 32-bit float audio routing pipeline with real-time badges across MiniPlayer and Now Playing.\n",
   "assets": [
     {
       "name": "PulseMusic-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
       "size": 61465574
     },
     {
       "name": "PulseMusic-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
       "size": 33596539
     },
     {
       "name": "PulseMusic-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33560687
+      "size": 33560684
     },
     {
       "name": "PulseMusic-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 35062014
+      "size": 35062023
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-Windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-Windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
       "size": 183496768
     },
     {
       "name": "PulseMusic-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-Windows-x64-Setup.zip",
       "content_type": "application/zip",
       "size": 183025399
     },
     {
-      "name": "PulseMusic-v4.1.0-windows-x64-Setup.exe",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-windows-x64-Setup.exe",
+      "name": "PulseMusic-v4.1.1-windows-x64-Setup.exe",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-windows-x64-Setup.exe",
       "content_type": "application/x-msdownload",
       "size": 183496768
     },
     {
-      "name": "PulseMusic-v4.1.0-Windows-x64-Setup.zip",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-Windows-x64-Setup.zip",
+      "name": "PulseMusic-v4.1.1-Windows-x64-Setup.zip",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-Windows-x64-Setup.zip",
       "content_type": "application/zip",
       "size": 183025399
     },
     {
-      "name": "PulseMusic-v4.1.0-Universal.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-Universal.apk",
+      "name": "PulseMusic-v4.1.1-Universal.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-Universal.apk",
       "content_type": "application/vnd.android.package-archive",
       "size": 61465574
     },
     {
-      "name": "PulseMusic-v4.1.0-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-arm64-v8a.apk",
+      "name": "PulseMusic-v4.1.1-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-arm64-v8a.apk",
       "content_type": "application/vnd.android.package-archive",
       "size": 33596539
     },
     {
-      "name": "PulseMusic-v4.1.0-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-armeabi-v7a.apk",
+      "name": "PulseMusic-v4.1.1-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-armeabi-v7a.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 33560687
+      "size": 33560684
     },
     {
-      "name": "PulseMusic-v4.1.0-x86_64.apk",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/PulseMusic-v4.1.0-x86_64.apk",
+      "name": "PulseMusic-v4.1.1-x86_64.apk",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/PulseMusic-v4.1.1-x86_64.apk",
       "content_type": "application/vnd.android.package-archive",
-      "size": 35062014
+      "size": 35062023
     },
     {
       "name": "SHA256SUMS.txt",
-      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.0/SHA256SUMS.txt",
+      "browser_download_url": "https://github.com/muthumanikandanb2005-ux/PulseMusic/releases/download/v4.1.1/SHA256SUMS.txt",
       "content_type": "text/plain; charset=utf-8",
       "size": 1176
     }
