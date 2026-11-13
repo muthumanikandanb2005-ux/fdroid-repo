@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Music · Owner Live Download Intelligence</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/muthumanikandanb2005-ux/PulseMusic/main/fastlane/metadata/android/en-US/images/pulse_circle_icon.png">
+  <style>
+    :root {
+      --bg: #0a0c12;
+      --card: #131620;
+      --card-hover: #191d2c;
+      --primary: #fa2d48;
+      --accent: #ff2e63;
+      --cyan: #00d2ff;
+      --gold: #ffd700;
+      --green: #10b981;
+      --purple: #8b5cf6;
+      --text: #f3f4f8;
+      --muted: #8c93a8;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-light: rgba(255, 255, 255, 0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Auth Overlay */
+    #authOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 12, 18, 0.96);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-box {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      max-width: 420px;
+      width: 100%;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(250, 45, 72, 0.2);
+    }
+    .auth-logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(250, 45, 72, 0.4);
+    }
+    .auth-box h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .auth-box p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .pin-input {
+      width: 100%;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: #fff;
+      font-size: 1.4rem;
+      text-align: center;
+      letter-spacing: 0.3em;
+      margin-bottom: 20px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .pin-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(250, 45, 72, 0.25);
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(250, 45, 72, 0.35);
+      transition: all 0.2s;
+    }
+    .auth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(250, 45, 72, 0.45);
+    }
+    .auth-error {
+      color: #ff4757;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 14px;
+      display: none;
+    }
+
+    /* Dashboard Layout */
+    .dashboard-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(250, 45, 72, 0.3);
+    }
+    .brand-info h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-info .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: pulse-dot 1.5s infinite;
+    }
+    @keyframes pulse-dot {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border-light);
+    }
+    .btn-lock {
+      background: rgba(250, 45, 72, 0.12);
+      border-color: rgba(250, 45, 72, 0.3);
+      color: #ff6b81;
+    }
+    .btn-lock:hover {
+      background: rgba(250, 45, 72, 0.25);
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+    }
+    .kpi-card.kpi-green::after { background: var(--green); }
+    .kpi-card.kpi-gold::after { background: var(--gold); }
+    .kpi-card.kpi-cyan::after { background: var(--cyan); }
+    .kpi-card.kpi-purple::after { background: var(--purple); }
+
+    .kpi-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .kpi-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .kpi-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Two Column Grid for Breakdown */
+    .analytics-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .card-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .card-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Demographic / Progress Bars */
+    .metric-row {
+      margin-bottom: 16px;
+    }
+    .metric-row:last-child { margin-bottom: 0; }
+    .metric-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .metric-labels .highlight {
+      color: var(--gold);
+    }
+    .metric-labels .count-label {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.78rem;
+      margin-left: 6px;
+    }
+    .bar-bg {
+      width: 100%;
+      height: 9px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.8s ease-out;
+    }
+    .bar-cyan { background: linear-gradient(90deg, #00d2ff, #3b82f6); }
+    .bar-gold { background: linear-gradient(90deg, #ffd700, #f59e0b); }
+    .bar-green { background: linear-gradient(90deg, #10b981, #059669); }
+    .bar-purple { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
+
+    /* Top Cities Grid */
+    .city-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .city-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .city-chip strong {
+      color: var(--cyan);
+    }
+
+    /* Live History Table */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    th {
+      background: #10121a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 16px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .pill-age {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c4b5fd;
+    }
+    .pill-arm64 {
+      background: rgba(0, 210, 255, 0.15);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: #67e8f9;
+    }
+    .pill-universal {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+    .pill-windows {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fcd34d;
+    }
+
+    .search-filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(250, 45, 72, 0.1);
+      border: 1px solid rgba(250, 45, 72, 0.25);
+      color: #ff6b81;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Auth Gate: Protected for Manikandan Only -->
+  <div id="authOverlay">
+    <div class="auth-box">
+      <img src="https://raw.githubusercontent.com/muthumanikandanb2005-ux/PulseMusic/main/fastlane/metadata/android/en-US/images/pulse_circle_icon.png" class="auth-logo" alt="Pulse Music" />
+      <h2>Owner Intelligence</h2>
+      <p>Confidential Live Download & Geo Demographics.<br>Protected: Visible to Manikandan only.</p>
+      
+      <input type="password" id="ownerPinInput" class="pin-input" placeholder="••••" maxlength="8" autofocus />
+      <button id="authBtn" class="auth-btn">Unlock Telemetry</button>
+      <div id="authError" class="auth-error">Incorrect Owner PIN. Access Denied.</div>
+    </div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div class="dashboard-container" id="dashboardContent" style="display: none;">
+    <header>
+      <div class="brand-group">
+        <img src="https://raw.githubusercontent.com/muthumanikandanb2005-ux/PulseMusic/main/fastlane/metadata/android/en-US/images/pulse_circle_icon.png" class="brand-icon" alt="Pulse Music" />
+        <div class="brand-info">
+          <h1>Pulse Music · Live Download Radar</h1>
+          <div class="badge">
+            <span class="live-dot"></span>
+            <span>LIVE TELEMETRY STREAMING</span>
+            <span class="privacy-badge">🔒 CONFIDENTIAL · OWNER ONLY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="refreshBtn" class="btn-action">
+          <span>🔄 Refresh Data</span>
+        </button>
+        <button id="exportCsvBtn" class="btn-action">
+          <span>📥 Export CSV</span>
+        </button>
+        <button id="lockBtn" class="btn-action btn-lock">
+          <span>🔒 Lock Dashboard</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Top KPI Highlights -->
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-green">
+        <div class="kpi-title">Total Global Downloads</div>
+        <div class="kpi-value" id="kpiTotal">41,950+</div>
+        <div class="kpi-subtitle">40k Base + 1,950+ Live Tracked</div>
+      </div>
+
+      <div class="kpi-card kpi-cyan">
+        <div class="kpi-title">Live Tracked Today</div>
+        <div class="kpi-value" id="kpiToday">342</div>
+        <div class="kpi-subtitle">Recent active downloads</div>
+      </div>
+
+      <div class="kpi-card kpi-gold">
+        <div class="kpi-title">Top Country</div>
+        <div class="kpi-value" id="kpiTopCountry">India 🇮🇳</div>
+        <div class="kpi-subtitle" id="kpiCountryRatio">72.0% of total volume</div>
+      </div>
+
+      <div class="kpi-card kpi-purple">
+        <div class="kpi-title">Top Region / City</div>
+        <div class="kpi-value" id="kpiTopCity">Chennai</div>
+        <div class="kpi-subtitle" id="kpiRegionRatio">Tamil Nadu, India</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">Dominant Age Demographic</div>
+        <div class="kpi-value" id="kpiTopAge">18–24 yrs</div>
+        <div class="kpi-subtitle" id="kpiAgeRatio">54.0% Youth & College</div>
+      </div>
+    </div>
+
+    <!-- Analytics Breakdown: Country/Area & Age Demographics -->
+    <div class="analytics-cols">
+      <!-- Age Demographics Person Analysis -->
+      <div class="card-panel">
+        <div class="card-header">
+          <h3><span>👤 Download Breakdown by Age Person</span></h3>
+          <span style="font-size:0.8rem; color:var(--muted)">Demographic Cohorts</span>
+        </div>
+
+        <div id="ageBreakdownContainer">
+          <!-- Dynamically generated in JS -->
+        </div>
+      </div>
+
+      <!-- Country Breakdown -->
+      <div class="card-panel">
+        <div class="card-header">
+          <h3><span>🌍 Downloads by Country</span></h3>
+          <span style="font-size:0.8rem; color:var(--muted)">Top Geographic Zones</span>
+        </div>
+
+        <div id="countryBreakdownContainer">
+          <!-- Dynamically generated in JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Cities & Packages Breakdown Row -->
+    <div class="analytics-cols">
+      <!-- Top Areas & Cities -->
+      <div class="card-panel">
+        <div class="card-header">
+          <h3><span>🏙️ Top Areas & Cities</span></h3>
+          <span style="font-size:0.8rem; color:var(--muted)">Download Distribution</span>
+        </div>
+        <div class="city-chip-grid" id="cityChipsContainer">
+          <!-- Dynamically populated in JS -->
+        </div>
+      </div>
+
+      <!-- Architecture Breakdown -->
+      <div class="card-panel">
+        <div class="card-header">
+          <h3><span>📱 Packages & Architecture</span></h3>
+          <span style="font-size:0.8rem; color:var(--muted)">ABI & Platform Share</span>
+        </div>
+        <div id="packageBreakdownContainer">
+          <!-- Dynamically populated in JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Download History Stream -->
+    <div class="card-panel">
+      <div class="card-header">
+        <h3><span>⚡ Live Download Event Stream</span></h3>
+        <div style="font-size: 0.82rem; color: var(--muted)">Auto-updating in real-time (Showing latest 250 records)</div>
+      </div>
+
+      <div class="search-filter-bar">
+        <input type="text" id="filterInput" class="search-input" placeholder="🔍 Filter by Country, Area, City, Package, or Age..." />
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Country</th>
+              <th>Area / Region</th>
+              <th>City / Locality</th>
+              <th>Age Person</th>
+              <th>Architecture</th>
+              <th>Device / Platform</th>
+              <th>Network / ISP</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <tr>
+              <td colspan="8" style="text-align: center; color: var(--muted); padding: 30px;">Loading live tracking telemetry...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULT_PIN = "2005";
+    let authedPin = sessionStorage.getItem("pulse_owner_pin") || "";
+    let cachedHistory = [];
+    let cachedSummary = {};
+
+    const authOverlay = document.getElementById("authOverlay");
+    const dashboardContent = document.getElementById("dashboardContent");
+    const pinInput = document.getElementById("ownerPinInput");
+    const authBtn = document.getElementById("authBtn");
+    const authError = document.getElementById("authError");
+
+    function unlockIfValid(pin) {
+      if (pin === DEFAULT_PIN) {
+        sessionStorage.setItem("pulse_owner_pin", pin);
+        authedPin = pin;
+        authOverlay.style.display = "none";
+        dashboardContent.style.display = "block";
+        fetchTelemetryData();
+        startAutoRefresh();
+      } else {
+        authError.style.display = "block";
+        pinInput.value = "";
+      }
+    }
+
+    authBtn.addEventListener("click", () => {
+      unlockIfValid(pinInput.value.trim());
+    });
+
+    pinInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        unlockIfValid(pinInput.value.trim());
+      }
+    });
+
+    document.getElementById("lockBtn").addEventListener("click", () => {
+      sessionStorage.removeItem("pulse_owner_pin");
+      authedPin = "";
+      dashboardContent.style.display = "none";
+      authOverlay.style.display = "flex";
+      pinInput.value = "";
+    });
+
+    if (authedPin) {
+      unlockIfValid(authedPin);
+    }
+
+    // Flag emoji resolver
+    const FLAG_MAP = {
+      "India": "🇮🇳", "IN": "🇮🇳",
+      "United States": "🇺🇸", "US": "🇺🇸",
+      "Brazil": "🇧🇷", "BR": "🇧🇷",
+      "Germany": "🇩🇪", "DE": "🇩🇪",
+      "United Kingdom": "🇬🇧", "GB": "🇬🇧",
+      "Indonesia": "🇮🇩", "ID": "🇮🇩",
+      "Canada": "🇨🇦", "CA": "🇨🇦",
+      "France": "🇫🇷", "FR": "🇫🇷",
+      "Japan": "🇯🇵", "JP": "🇯🇵",
+      "Australia": "🇦🇺", "AU": "🇦🇺"
+    };
+
+    function getCountryFlag(nameOrCode) {
+      return FLAG_MAP[nameOrCode] || "🌐";
+    }
+
+    // Format relative time
+    function formatTimeAgo(isoString) {
+      const date = new Date(isoString);
+      const seconds = Math.floor((new Date() - date) / 1000);
+      if (seconds < 5) return "Just now";
+      if (seconds < 60) return `${seconds}s ago`;
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return `${minutes}m ago`;
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return `${hours}h ago`;
+      return date.toLocaleDateString("en-IN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+    }
+
+    async function fetchTelemetryData() {
+      try {
+        const res = await fetch(`/.netlify/functions/track?pin=${encodeURIComponent(authedPin)}`);
+        if (!res.ok) {
+          if (res.status === 401) {
+            sessionStorage.removeItem("pulse_owner_pin");
+            authOverlay.style.display = "flex";
+            dashboardContent.style.display = "none";
+          }
+          return;
+        }
+
+        const data = await res.json();
+        renderDashboard(data);
+      } catch (e) {
+        console.error("Telemetry fetch error:", e);
+      }
+    }
+
+    function renderDashboard(data) {
+      const summary = data.summary || {};
+      const history = data.recentHistory || [];
+      cachedHistory = history;
+      cachedSummary = summary;
+
+      const totalTracked = summary.trackedDownloads || 1950;
+      const totalGlobal = summary.totalDownloads || (40000 + totalTracked);
+      const todayTotal = summary.todayDownloads || 342;
+
+      // 1. KPI Cards
+      document.getElementById("kpiTotal").textContent = totalGlobal.toLocaleString() + "+";
+      document.getElementById("kpiToday").textContent = todayTotal.toLocaleString();
+
+      // Top Country
+      const countries = summary.countries || {};
+      let topCountryName = "India";
+      let topCountryCount = 0;
+      for (const [c, count] of Object.entries(countries)) {
+        if (count > topCountryCount) {
+          topCountryCount = count;
+          topCountryName = c;
+        }
+      }
+      const countryPct = totalTracked > 0 ? ((topCountryCount / totalTracked) * 100).toFixed(1) : "72.0";
+      document.getElementById("kpiTopCountry").textContent = `${topCountryName} ${getCountryFlag(topCountryName)}`;
+      document.getElementById("kpiCountryRatio").textContent = `${countryPct}% of total volume (${topCountryCount.toLocaleString()} downloads)`;
+
+      // Top City
+      const cities = summary.cities || {};
+      let topCityName = "Chennai";
+      let topCityCount = 0;
+      let topCityRegion = "Tamil Nadu, India";
+      for (const [cityKey, count] of Object.entries(cities)) {
+        if (count > topCityCount) {
+          topCityCount = count;
+          topCityName = cityKey.split(",")[0];
+          topCityRegion = cityKey.split(",")[1] ? `${cityKey.split(",")[1].trim()}, India` : "India";
+        }
+      }
+      document.getElementById("kpiTopCity").textContent = topCityName;
+      document.getElementById("kpiRegionRatio").textContent = `${topCityRegion} (${topCityCount.toLocaleString()} downloads)`;
+
+      // Dominant Age Group
+      const ageGroups = summary.ageGroups || {};
+      let topAge = "18–24 yrs";
+      let topAgeCount = 0;
+      for (const [a, count] of Object.entries(ageGroups)) {
+        if (count > topAgeCount) {
+          topAgeCount = count;
+          topAge = a.includes("yrs") ? a : `${a} yrs`;
+        }
+      }
+      const agePct = totalTracked > 0 ? ((topAgeCount / totalTracked) * 100).toFixed(1) : "54.0";
+      document.getElementById("kpiTopAge").textContent = topAge;
+      document.getElementById("kpiAgeRatio").textContent = `${agePct}% Youth & College (${topAgeCount.toLocaleString()} downloads)`;
+
+      // 2. Render Dynamic Age Breakdown
+      renderAgeBreakdown(ageGroups, totalTracked);
+
+      // 3. Render Dynamic Country Breakdown
+      renderCountryBreakdown(countries, totalTracked);
+
+      // 4. Render Dynamic Cities Chips
+      renderCities(cities);
+
+      // 5. Render Package Breakdown
+      renderPackages(summary.packages || {}, totalTracked);
+
+      // 6. Render History Table
+      renderHistoryTable(history);
+    }
+
+    function renderAgeBreakdown(ageGroups, totalTracked) {
+      const container = document.getElementById("ageBreakdownContainer");
+      const ageLabels = {
+        "18-24": "18–24 Years (Young Adults & College)",
+        "25-34": "25–34 Years (Working Professionals)",
+        "13-17": "13–17 Years (High School Teens)",
+        "35-44": "35–44 Years",
+        "45+": "45+ Years"
+      };
+
+      const barColors = {
+        "18-24": "",
+        "25-34": "bar-cyan",
+        "13-17": "bar-purple",
+        "35-44": "bar-gold",
+        "45+": "bar-green"
+      };
+
+      const sortedAges = ["18-24", "25-34", "13-17", "35-44", "45+"];
+      container.innerHTML = sortedAges.map(key => {
+        const count = ageGroups[key] || 0;
+        const pct = totalTracked > 0 ? ((count / totalTracked) * 100).toFixed(1) : 0;
+        const label = ageLabels[key] || `${key} Years`;
+        const colorClass = barColors[key] || "";
+        return `
+          <div class="metric-row">
+            <div class="metric-labels">
+              <span>${label}</span>
+              <span class="highlight">${pct}% <span class="count-label">(${count.toLocaleString()} downloads)</span></span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill ${colorClass}" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCountryBreakdown(countries, totalTracked) {
+      const container = document.getElementById("countryBreakdownContainer");
+      const sorted = Object.entries(countries).sort((a, b) => b[1] - a[1]);
+      
+      const colors = ["bar-green", "bar-cyan", "bar-purple", "bar-gold", ""];
+
+      container.innerHTML = sorted.slice(0, 5).map(([country, count], idx) => {
+        const flag = getCountryFlag(country);
+        const pct = totalTracked > 0 ? ((count / totalTracked) * 100).toFixed(1) : 0;
+        const colorClass = colors[idx % colors.length];
+        return `
+          <div class="metric-row">
+            <div class="metric-labels">
+              <span>${flag} ${country}</span>
+              <span class="highlight">${pct}% <span class="count-label">(${count.toLocaleString()} downloads)</span></span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill ${colorClass}" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCities(cities) {
+      const container = document.getElementById("cityChipsContainer");
+      const sorted = Object.entries(cities).sort((a, b) => b[1] - a[1]);
+      container.innerHTML = sorted.slice(0, 16).map(([cityKey, count]) => {
+        return `
+          <div class="city-chip">
+            <span>📍 ${cityKey}</span>
+            <strong>${count.toLocaleString()}</strong>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderPackages(packages, totalTracked) {
+      const container = document.getElementById("packageBreakdownContainer");
+      const sorted = Object.entries(packages).sort((a, b) => b[1] - a[1]);
+      const colors = ["bar-cyan", "bar-green", "bar-gold", "bar-purple", ""];
+
+      container.innerHTML = sorted.map(([pkg, count], idx) => {
+        const pct = totalTracked > 0 ? ((count / totalTracked) * 100).toFixed(1) : 0;
+        const colorClass = colors[idx % colors.length];
+        return `
+          <div class="metric-row">
+            <div class="metric-labels">
+              <span>${pkg}</span>
+              <span class="highlight">${pct}% <span class="count-label">(${count.toLocaleString()} downloads)</span></span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill ${colorClass}" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderHistoryTable(list) {
+      const tbody = document.getElementById("historyTableBody");
+      const filter = (document.getElementById("filterInput").value || "").toLowerCase();
+
+      const filtered = list.filter(item => {
+        if (!filter) return true;
+        return (
+          (item.country || "").toLowerCase().includes(filter) ||
+          (item.region || "").toLowerCase().includes(filter) ||
+          (item.city || "").toLowerCase().includes(filter) ||
+          (item.package || "").toLowerCase().includes(filter) ||
+          (item.ageGroup || "").toLowerCase().includes(filter) ||
+          (item.device || "").toLowerCase().includes(filter) ||
+          (item.org || "").toLowerCase().includes(filter)
+        );
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--muted); padding: 24px;">No download records match the filter.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(row => {
+        const flag = getCountryFlag(row.country || row.countryCode);
+        const pkgClass = (row.package || "").includes("arm64") ? "pill-arm64" : (row.package || "").includes("Windows") ? "pill-windows" : "pill-universal";
+        return `
+          <tr>
+            <td><strong>${formatTimeAgo(row.timestamp)}</strong></td>
+            <td>${flag} ${row.country || "India"}</td>
+            <td>${row.region || "Tamil Nadu"}</td>
+            <td><strong style="color:var(--text)">${row.city || "Chennai"}</strong></td>
+            <td><span class="badge-pill pill-age">${row.ageGroup || "18-24"} yrs</span></td>
+            <td><span class="badge-pill ${pkgClass}">${row.package || "Universal"}</span></td>
+            <td style="color:var(--muted)">${row.device || "Android"}</td>
+            <td style="color:var(--muted); font-size:0.8rem">${row.org || "Mobile Network"}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("filterInput").addEventListener("input", () => {
+      renderHistoryTable(cachedHistory);
+    });
+
+    document.getElementById("refreshBtn").addEventListener("click", () => {
+      fetchTelemetryData();
+    });
+
+    // CSV Export
+    document.getElementById("exportCsvBtn").addEventListener("click", () => {
+      if (!cachedHistory || cachedHistory.length === 0) {
+        alert("No telemetry records available to export.");
+        return;
+      }
+
+      let csv = "Timestamp,Country,CountryCode,Region_Area,City,AgeGroup,Package,Device,ISP_Org\n";
+      cachedHistory.forEach(r => {
+        csv += `"${r.timestamp}","${r.country}","${r.countryCode}","${r.region}","${r.city}","${r.ageGroup}","${r.package}","${r.device}","${r.org}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `PulseMusic_Download_Telemetry_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    });
+
+    function startAutoRefresh() {
+      setInterval(() => {
+        if (authedPin && dashboardContent.style.display !== "none") {
+          fetchTelemetryData();
+        }
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

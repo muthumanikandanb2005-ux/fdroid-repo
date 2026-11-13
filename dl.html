@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloading Pulse Music v4.1.4...</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/muthumanikandanb2005-ux/PulseMusic/main/fastlane/metadata/android/en-US/images/pulse_circle_icon.png">
+  <style>
+    :root {
+      --bg: #0c0e14;
+      --card: #151822;
+      --primary: #fa2d48;
+      --accent: #ff2e63;
+      --gold: #ffd700;
+      --cyan: #00d2ff;
+      --text: #f0f2f8;
+      --muted: #8b92a8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(250, 45, 72, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0, 210, 255, 0.08) 0%, transparent 50%);
+    }
+    .dl-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      max-width: 520px;
+      width: 100%;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+    .logo-wrapper {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 24px;
+    }
+    .logo-img {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(250, 45, 72, 0.35);
+      position: relative;
+      z-index: 2;
+    }
+    .logo-glow {
+      position: absolute;
+      inset: -10px;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      border-radius: 30px;
+      filter: blur(18px);
+      opacity: 0.5;
+      animation: pulse-glow 3s infinite alternate;
+    }
+    @keyframes pulse-glow {
+      0% { transform: scale(0.95); opacity: 0.4; }
+      100% { transform: scale(1.05); opacity: 0.7; }
+    }
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .pkg-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(255, 215, 0, 0.12);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      color: var(--gold);
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.03em;
+    }
+    p.desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--cyan));
+      border-radius: 99px;
+      transition: width 2s ease-in-out;
+    }
+    /* Age Selector Pill Box */
+    .demographic-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .demographic-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .age-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .age-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .age-chip:hover, .age-chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(250, 45, 72, 0.3);
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 16px;
+      font-size: 1rem;
+      box-shadow: 0 8px 24px rgba(250, 45, 72, 0.4);
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(250, 45, 72, 0.5);
+    }
+    .status-note {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .status-note a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dl-card">
+    <div class="logo-wrapper">
+      <div class="logo-glow"></div>
+      <img src="https://raw.githubusercontent.com/muthumanikandanb2005-ux/PulseMusic/main/fastlane/metadata/android/en-US/images/pulse_circle_icon.png" class="logo-img" alt="Pulse Music" />
+    </div>
+
+    <h1 id="titleText">Preparing Your Download...</h1>
+    <div class="pkg-badge" id="pkgBadge">Pulse Music v4.1.4</div>
+
+    <p class="desc" id="statusDesc">
+      Your high-fidelity music streaming app download is starting automatically in seconds.
+    </p>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Optional 1-Tap Demographic Selector -->
+    <div class="demographic-box">
+      <div class="demographic-title">
+        <span>🎧 Personalize Your Audio Profile (Select Age)</span>
+      </div>
+      <div class="age-chips" id="ageChips">
+        <button class="age-chip" data-age="13-17">13–17</button>
+        <button class="age-chip active" data-age="18-24">18–24</button>
+        <button class="age-chip" data-age="25-34">25–34</button>
+        <button class="age-chip" data-age="35-44">35–44</button>
+        <button class="age-chip" data-age="45+">45+</button>
+      </div>
+    </div>
+
+    <a href="#" id="directDownloadBtn" class="btn-download">
+      <span>🚀 Download Directly</span>
+    </a>
+
+    <div class="status-note">
+      Didn't start automatically? Tap the button above, or explore the <a href="https://pulse-webplayer.netlify.app/">Online Web Player</a>.
+    </div>
+  </div>
+
+  <script>
+    const VERSION = "4.1.4";
+    const GITHUB_REPO = "muthumanikandanb2005-ux/PulseMusic";
+    
+    // Package mapping
+    const PACKAGE_MAP = {
+      "arm64": {
+        name: "Android 64-bit (ARM64)",
+        file: `PulseMusic-arm64-v8a.apk`,
+        desc: "Optimized for modern 64-bit Android smartphones & tablets."
+      },
+      "universal": {
+        name: "Android Universal APK",
+        file: `PulseMusic-Universal.apk`,
+        desc: "Compatible with all Android devices and processors."
+      },
+      "windows": {
+        name: "Windows 64-bit Installer",
+        file: `PulseMusic-Windows-x64-Setup.exe`,
+        desc: "Standard Windows 10 & 11 Setup Installer."
+      },
+      "zip": {
+        name: "Windows Portable Archive",
+        file: `PulseMusic-Windows-x64-Setup.zip`,
+        desc: "Standalone Portable archive for Windows."
+      },
+      "armeabi": {
+        name: "Android Legacy (ARMv7)",
+        file: `PulseMusic-armeabi-v7a.apk`,
+        desc: "For older 32-bit Android phones."
+      },
+      "x86_64": {
+        name: "Android x86_64 (Emulator)",
+        file: `PulseMusic-x86_64.apk`,
+        desc: "Optimized for Chromebooks & Android Emulators."
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pkgKey = (urlParams.get("pkg") || "universal").toLowerCase();
+    const pkgInfo = PACKAGE_MAP[pkgKey] || PACKAGE_MAP["universal"];
+
+    const downloadUrl = `https://github.com/${GITHUB_REPO}/releases/download/v${VERSION}/${pkgInfo.file}`;
+
+    document.getElementById("pkgBadge").textContent = `${pkgInfo.name} · v${VERSION}`;
+    document.getElementById("statusDesc").textContent = pkgInfo.desc;
+    document.getElementById("directDownloadBtn").href = downloadUrl;
+
+    let selectedAge = "18-24";
+    const ageBtns = document.querySelectorAll(".age-chip");
+    ageBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        ageBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedAge = btn.dataset.age;
+      });
+    });
+
+    // Animate Progress Bar
+    setTimeout(() => {
+      document.getElementById("progressFill").style.width = "100%";
+    }, 100);
+
+    // Fetch GeoIP and Record Telemetry
+    async function trackAndRedirect() {
+      let geoData = {
+        country: "India",
+        countryCode: "IN",
+        region: "Tamil Nadu",
+        city: "Chennai",
+        postal: "",
+        org: "",
+        ip: ""
+      };
+
+      try {
+        const res = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(2000) });
+        if (res.ok) {
+          const d = await res.json();
+          geoData = {
+            country: d.country_name || "India",
+            countryCode: d.country_code || "IN",
+            region: d.region || "Tamil Nadu",
+            city: d.city || "Chennai",
+            postal: d.postal || "",
+            org: d.org || "",
+            ip: d.ip || ""
+          };
+        }
+      } catch (e) {
+        console.warn("Geo lookup fallback to server headers");
+      }
+
+      // Detect OS & Device
+      const userAgent = navigator.userAgent;
+      let detectedDevice = "Android";
+      if (userAgent.includes("Windows")) detectedDevice = "Windows PC";
+      else if (userAgent.includes("Macintosh")) detectedDevice = "macOS";
+      else if (userAgent.includes("Linux")) detectedDevice = "Linux";
+      else if (userAgent.includes("iPhone") || userAgent.includes("iPad")) detectedDevice = "iOS";
+
+      // Send telemetry ping to private tracking function
+      try {
+        await fetch("/.netlify/functions/track", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            package: pkgInfo.name,
+            country: geoData.country,
+            countryCode: geoData.countryCode,
+            region: geoData.region,
+            city: geoData.city,
+            postal: geoData.postal,
+            org: geoData.org,
+            device: detectedDevice,
+            ageGroup: selectedAge,
+            source: urlParams.get("source") || "web_download_router"
+          }),
+          signal: AbortSignal.timeout(2000)
+        });
+      } catch (err) {
+        console.error("Telemetry ping recorded:", err);
+      }
+
+      // Auto trigger download
+      setTimeout(() => {
+        document.getElementById("titleText").textContent = "Download Started! 🚀";
+        window.location.href = downloadUrl;
+      }, 1500);
+    }
+
+    trackAndRedirect();
+  </script>
+</body>
+</html>
