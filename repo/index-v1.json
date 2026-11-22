@@ -26,14 +26,31 @@
       "categories": [
         "Multimedia"
       ],
-      "suggestedVersionCode": 114,
-      "suggestedVersionName": "4.1.4",
+      "suggestedVersionCode": 119,
+      "suggestedVersionName": "4.1.9",
       "added": 1791773914899,
       "lastUpdated": 1794312109859
     }
   ],
   "packages": {
     "com.pulse.music": [
+      {
+        "added": 1795323174798,
+        "apkName": "PulseMusic-v4.1.9-Universal.apk",
+        "hash": "8f558fe12f67a8bd3f7fdd463c2be49ea0ece98118c2e65310e23a5be2b418ac",
+        "hashType": "sha256",
+        "minSdkVersion": 26,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86_64"
+        ],
+        "packageName": "com.pulse.music",
+        "size": 58054338,
+        "targetSdkVersion": 35,
+        "versionCode": 119,
+        "versionName": "4.1.9"
+      },
       {
         "added": 1794471417590,
         "apkName": "PulseMusic-v4.1.4-Universal.apk",
