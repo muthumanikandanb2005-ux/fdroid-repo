@@ -1,6 +1,6 @@
 {
   "repo": {
-    "timestamp": 1795502258389,
+    "timestamp": 1795519901528,
     "version": 20000,
     "name": "Pulse Music Repository",
     "icon": "icon.png",
@@ -29,11 +29,59 @@
       "suggestedVersionCode": 120,
       "suggestedVersionName": "4.2.0",
       "added": 1791773914899,
-      "lastUpdated": 1795502258389
+      "lastUpdated": 1795519901528
     }
   ],
   "packages": {
     "com.pulse.music": [
+      {
+        "added": 1795519901701,
+        "apkName": "PulseMusic-v4.2.0-x86_64.apk",
+        "hash": "e929a59dd2c7f28fbbfdf9174efeba04ca11f6d259ee56053bbf8731e9f39b3e",
+        "hashType": "sha256",
+        "minSdkVersion": 26,
+        "packageName": "com.pulse.music",
+        "size": 31670368,
+        "targetSdkVersion": 34,
+        "versionCode": 120,
+        "versionName": "4.2.0"
+      },
+      {
+        "added": 1795519901652,
+        "apkName": "PulseMusic-v4.2.0-armeabi-v7a.apk",
+        "hash": "30190afb09b618de2409dc238c22b4124f91eeb54422da43044aa510dc691394",
+        "hashType": "sha256",
+        "minSdkVersion": 26,
+        "packageName": "com.pulse.music",
+        "size": 30169029,
+        "targetSdkVersion": 34,
+        "versionCode": 120,
+        "versionName": "4.2.0"
+      },
+      {
+        "added": 1795519901602,
+        "apkName": "PulseMusic-v4.2.0-arm64-v8a.apk",
+        "hash": "e2bd9aad96079d14d38f21b2d58d54b26353d41e24d61b8aa3807f453ecd6209",
+        "hashType": "sha256",
+        "minSdkVersion": 26,
+        "packageName": "com.pulse.music",
+        "size": 30204886,
+        "targetSdkVersion": 34,
+        "versionCode": 120,
+        "versionName": "4.2.0"
+      },
+      {
+        "added": 1795519901528,
+        "apkName": "PulseMusic-v4.2.0-Universal.apk",
+        "hash": "5b81c4792f69df655c949a880d873ae5188c2e5a7544829c02aa249afb00ca5a",
+        "hashType": "sha256",
+        "minSdkVersion": 26,
+        "packageName": "com.pulse.music",
+        "size": 58074013,
+        "targetSdkVersion": 34,
+        "versionCode": 120,
+        "versionName": "4.2.0"
+      },
       {
         "added": 1795502258589,
         "apkName": "PulseMusic-v4.2.0-x86_64.apk",
